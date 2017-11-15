@@ -1,0 +1,12 @@
+test\redis\session\RedisConfig.class
+test\jdbc\jdbctemplate\main\Main.class
+com\mybatis\www\model\Student.class
+test\jdbc\jdbctemplate\DBController.class
+com\mybatis\www\model\Person.class
+test\redis\session\RedisConfig$1.class
+com\yuan\mybatis\dao\PersonMapper.class
+com\yuan\mybatis\dao\FruitsMapper.class
+com\mybatis\www\controller\Controller.class
+com\mybatis\www\model\Fruits.class
+test\jdbc\jdbctemplate\JDBCConfig.class
+com\yuan\mybatis\dao\StudentMapper.class

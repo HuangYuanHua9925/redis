@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!--maven项目下放在resouce目录下  -->
+	<!--<properties resource="mybatis.properties"/>-->
+	<classPathEntry
+		location="E:\yuaniXngHua\MyeclipseMavenRespository\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/test_mysql"
+			userId="root" password="123456" />
+			
+		<!-- 生成model -->
+		<javaModelGenerator targetPackage="com.mybatis.www.model"
+			targetProject="redis/src/main/java" />
+		<!-- 生成.xml -->
+		<sqlMapGenerator targetPackage="com.yuan.mybatis.xml"
+			targetProject="redis/src/main/resources" />
+			
+		<!-- 生产dao -->
+		<javaClientGenerator targetPackage="com.yuan.mybatis.dao"
+			targetProject="redis/src/main/java" type="XMLMAPPER" />
+			
+		<!-- <table tableName="tb_examinee" domainObjectName="Examinee"
+				enableCountByExample="false" enableUpdateByExample="false"
+				enableDeleteByExample="false" enableSelectByExample="false"
+				selectByExampleQueryId="false">
+			</table> -->
+		
+		<table tableName="student" domainObjectName="Student"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			
+		</table>
+		
+	</context>
+	
+	
+	
+</generatorConfiguration>
