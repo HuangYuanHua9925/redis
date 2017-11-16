@@ -1,4 +1,4 @@
-package com.mybatis.www.controller;
+package com.mybatis.config;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
