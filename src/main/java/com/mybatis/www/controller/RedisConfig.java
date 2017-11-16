@@ -18,6 +18,8 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.cache.CacheManager;
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport{
@@ -66,5 +68,6 @@ public class RedisConfig extends CachingConfigurerSupport{
 	       template.setValueSerializer(jackson2JsonRedisSerializer);  
 	       template.afterPropertiesSet();  
 	       return template;  
-	   }  
+	   }
+	  
 }

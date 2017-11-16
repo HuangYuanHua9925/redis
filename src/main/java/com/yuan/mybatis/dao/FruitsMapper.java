@@ -2,6 +2,9 @@ package com.yuan.mybatis.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Select;
+
 import com.mybatis.www.model.Fruits;
 
 public interface FruitsMapper {
@@ -41,6 +44,7 @@ public interface FruitsMapper {
 	 * @mbggenerated  Tue Nov 14 14:55:49 CST 2017
 	 */
 	int updateByPrimaryKey(Fruits record);
-
+	@Select(value="select * from fruits")
+	@ResultType(value=com.mybatis.www.model.Fruits.class)
 	 List<Fruits> getAllFruits();
 }

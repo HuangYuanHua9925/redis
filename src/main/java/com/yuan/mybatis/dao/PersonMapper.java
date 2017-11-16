@@ -2,6 +2,9 @@ package com.yuan.mybatis.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Select;
+
 import com.mybatis.www.model.Person;
 
 public interface PersonMapper {
@@ -53,5 +56,7 @@ public interface PersonMapper {
      */
     int updateByPrimaryKey(Person record);
     
+    @Select("select * from person")
+    @ResultType(com.mybatis.www.model.Person.class)
     List<Person> getAllPerson();
 }
