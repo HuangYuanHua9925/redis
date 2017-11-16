@@ -2,6 +2,8 @@ package com.mybatis.www.controller;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,10 +28,11 @@ import com.yuan.mybatis.dao.FruitsMapper;
 import com.yuan.mybatis.dao.PersonMapper;
 
 @RestController
-@EnableAutoConfiguration
-@ComponentScan("com.yuan.mybatis")
-@MapperScan("com.yuan.mybatis.dao")
-@EnableCaching
+@EnableAutoConfiguration//开启自动配置默认的一些行为
+@ComponentScan("com.yuan.mybatis")//spring扫描范围
+@MapperScan("com.yuan.mybatis.dao")//扫描mapper接口
+@EnableCaching//开启缓存
+@EnableTransactionManagement//开启事务管理
 public class Controller {
 
 	@Autowired
@@ -36,15 +41,18 @@ public class Controller {
 	private PersonMapper personMapper;
 	@Autowired
 	private RedisTemplate redisTemplate;
+	
 	@Autowired
-	private SqlSessionFactory sqlSessionFactory;
-
+	private DataSource datasource;
+	
 	@GetMapping("/fruits")
 	@Cacheable(value = "fruits")
+	@Transactional
 	public List<Fruits> getAllFruits() {
 		// System.out.println(fruitsMapper.getAllFruits());
 		System.out.println(1111);
-
+		String name="123";
+		System.out.println(datasource.getClass());
 		return fruitsMapper.getAllFruits();
 	}
 
