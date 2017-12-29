@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -77,7 +76,7 @@ public class DataSourceConfig {
 	@Bean
 	@Primary//优先使用这个DataSource
 	public DataSource DynamicDataSource(){
-		Map<Object,Object> targetDataSources =new HashMap<>();
+		Map<Object,Object> targetDataSources =new HashMap<Object, Object>();
 		targetDataSources.put("dataSource1", dataSource1());
 		targetDataSources.put("dataSource2", DataSource2());
 		DynamicDataSource dynamicDataSource = new DynamicDataSource();
