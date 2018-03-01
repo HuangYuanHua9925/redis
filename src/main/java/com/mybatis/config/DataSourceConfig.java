@@ -42,7 +42,7 @@ public class DataSourceConfig {
 	@Value("${spring.datasource.maxWait}")
 	private int maxWait;
 
-	@Bean("dataSource1") // 声明其为Bean实例
+//	@Bean("dataSource1") // 声明其为Bean实例
 //	@Primary // 在同样的DataSource中，首先使用被标注的DataSource
 	public DataSource dataSource1() {
 		DruidDataSource datasource = new DruidDataSource();
@@ -57,7 +57,6 @@ public class DataSourceConfig {
 		return datasource;
 	}
 
-	@Bean("dataSource2")
 	public DataSource DataSource2() {
 		
 		DruidDataSource datasource = new DruidDataSource();
